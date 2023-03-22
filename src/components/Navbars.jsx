@@ -4,12 +4,9 @@ import { RiSearchLine } from "react-icons/ri";
 const Navbars = () => {
   return (
     <>
-      <Navbar
-        fluid={true}
-        className="h-[3.5rem text-black shadow-sm bg-s_primary"
-      >
+      <Navbar fluid={true} className="sticky top-0 h-16">
         <Navbar.Brand>
-          <div className="text-3xl font-medium text-white">Social</div>
+          <div className="text-3xl font-medium">Social</div>
         </Navbar.Brand>
         <div>
           <form>
@@ -34,14 +31,12 @@ const Navbars = () => {
           }
         >
           <Dropdown.Header>
-            <span className="block text-sm">Bonnie Green</span>
+            <span className="block text-sm">Pedro Pascal</span>
             <span className="block truncate text-sm font-medium">
-              name@flowbite.com
+              Pedro@pascal.com
             </span>
           </Dropdown.Header>
-          <Dropdown.Item>Dashboard</Dropdown.Item>
           <Dropdown.Item>Settings</Dropdown.Item>
-          <Dropdown.Item>Earnings</Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item>Sign out</Dropdown.Item>
         </Dropdown>
