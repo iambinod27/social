@@ -2,23 +2,23 @@ import { SlOptions } from "react-icons/sl";
 import { AiOutlineLike } from "react-icons/ai";
 import { TfiCommentAlt } from "react-icons/tfi";
 import { TbShare3 } from "react-icons/tb";
+import { Avatar } from "flowbite-react";
 
 const ContentPost = () => {
   return (
     <>
       <div className="bg-s_secondary rounded-md w-[500px] mb-10">
         <div className="flex justify-between items-center px-5 py-2">
-          <div className="flex items-center gap-3">
-            <img
-              src="https://hips.hearstapps.com/hmg-prod/images/gettyimages-594881580.jpg?resize=1200:*"
-              alt="pedro pascal"
-              className="rounded-full h-[50px] w-[50px]"
-            />
-            <div className="flex flex-col">
-              <h4>Pedro Pascal</h4>
-              <p className="font-light">6h</p>
+          <Avatar
+            img="https://hips.hearstapps.com/hmg-prod/images/gettyimages-594881580.jpg?resize=1200:*"
+            rounded={true}
+            size="md"
+          >
+            <div className=" font-medium dark:text-white">
+              <div>Pedro Pascal</div>
+              <div className="text-sm font-light dark:text-gray-400">6h</div>
             </div>
-          </div>
+          </Avatar>
           <div className="cursor-pointer">
             <SlOptions />
           </div>

@@ -1,3 +1,4 @@
+import Chatlist from "../components/Chatlist";
 import Content from "../components/Content";
 import SideMenu from "../components/SideMenu";
 
@@ -16,7 +17,9 @@ const Home = () => {
           </div>
         </div>
         <div className="col-span-3">
-          <div className="p-5 max-h-screen overflow-y-scroll">ChatList</div>
+          <div className="p-5 max-h-screen overflow-y-scroll">
+            <Chatlist />
+          </div>
         </div>
       </div>
     </div>
