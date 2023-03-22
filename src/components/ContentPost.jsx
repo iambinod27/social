@@ -7,7 +7,7 @@ import { Avatar } from "flowbite-react";
 const ContentPost = () => {
   return (
     <>
-      <div className="bg-s_secondary rounded-md w-[500px] mb-10">
+      <div className="bg-secondary rounded-md w-[500px] mb-10">
         <div className="flex justify-between items-center px-5 py-2">
           <Avatar
             img="https://hips.hearstapps.com/hmg-prod/images/gettyimages-594881580.jpg?resize=1200:*"

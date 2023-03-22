@@ -4,7 +4,7 @@ import { RiSearchLine } from "react-icons/ri";
 const Navbars = () => {
   return (
     <>
-      <Navbar fluid={true} className="sticky top-0 h-16">
+      <Navbar fluid={true} className="sticky top-0 h-16 !bg-primary text-white">
         <Navbar.Brand>
           <div className="text-3xl font-medium">Social</div>
         </Navbar.Brand>
