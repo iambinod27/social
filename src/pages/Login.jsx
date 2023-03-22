@@ -1,4 +1,5 @@
 import { Button, Checkbox, Label, Navbar, TextInput } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -52,12 +53,12 @@ const Login = () => {
           </form>
           <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
             Not registered?
-            <a
-              href="/modal"
+            <Link
+              to="/signup"
               className="text-blue-700 hover:underline dark:text-blue-500"
             >
               Create account
-            </a>
+            </Link>
           </div>
         </div>
       </div>
