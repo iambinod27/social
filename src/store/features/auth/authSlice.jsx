@@ -24,7 +24,10 @@ const authSlice = createSlice({
       state.isLoading = true;
     },
     [login.fulfilled]: (state, { payload }) => {
+      console.log(payload);
       state.isLoading = false;
+      state.access_token = payload.access_token;
+      localStorage.setItem("refreshToken", payload.refresh_token);
     },
     [login.rejected]: (state, { payload }) => {
       state.isLoading = true;
