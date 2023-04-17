@@ -1,12 +1,16 @@
-import { Button, Checkbox, Label, Navbar, TextInput } from "flowbite-react";
+import { Alert, Button, Label, Navbar, TextInput } from "flowbite-react";
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { register } from "../store/actions/auth/authActions";
+import { HiInformationCircle } from "react-icons/hi";
 
 const SignUp = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { message } = useSelector((state) => state.auth);
 
   const formik = useFormik({
     initialValues: {
@@ -31,8 +35,14 @@ const SignUp = () => {
       ),
     }),
 
-    onSubmit: (values, { resetForm }) => {
-      dispatch(register(values));
+    onSubmit: async (values, { resetForm }) => {
+      const resultAction = await dispatch(register(values));
+
+      if (register.fulfilled.match(resultAction)) {
+        dispatch(register(values));
+
+        navigate("/");
+      }
 
       resetForm();
     },
@@ -54,6 +64,13 @@ const SignUp = () => {
             Create your account in to our platform
           </h3>
           <form className="space-y-5" onSubmit={formik.handleSubmit}>
+            {message && (
+              <Alert color="failure" icon={HiInformationCircle}>
+                <span>
+                  <span className="font-medium">{message}</span>
+                </span>
+              </Alert>
+            )}
             <div>
               <div className="mb-2 block">
                 <Label

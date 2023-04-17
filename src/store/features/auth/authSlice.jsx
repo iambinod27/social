@@ -21,6 +21,7 @@ const authSlice = createSlice({
     },
     [register.rejected]: (state, { payload }) => {
       state.isLoading = true;
+      state.message = payload;
     },
     [login.pending]: (state) => {
       state.isLoading = true;

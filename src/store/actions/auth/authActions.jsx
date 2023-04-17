@@ -10,8 +10,8 @@ export const register = createAsyncThunk(
           "content-type": "application/json",
         },
       });
-
       const data = await response.data;
+      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
