@@ -4,6 +4,8 @@ import { login, register } from "../../actions/auth/authActions";
 const initialState = {
   access_token: null,
   isLoading: true,
+  isAuthenticated: false,
+  message: null,
 };
 
 const authSlice = createSlice({
@@ -24,12 +26,14 @@ const authSlice = createSlice({
       state.isLoading = true;
     },
     [login.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       state.isLoading = false;
       state.access_token = payload.access_token;
+      state.isAuthenticated = true;
       localStorage.setItem("refreshToken", payload.refresh_token);
     },
     [login.rejected]: (state, { payload }) => {
+      console.log(payload);
+      state.message = payload;
       state.isLoading = true;
     },
   },

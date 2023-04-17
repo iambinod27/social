@@ -1,12 +1,23 @@
-import { Button, Checkbox, Label, Navbar, TextInput } from "flowbite-react";
+import {
+  Alert,
+  Button,
+  Checkbox,
+  Label,
+  Navbar,
+  TextInput,
+} from "flowbite-react";
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { login } from "../store/actions/auth/authActions";
+import { HiInformationCircle } from "react-icons/hi";
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { message } = useSelector((state) => state.auth);
 
   const formik = useFormik({
     initialValues: {
@@ -22,10 +33,14 @@ const Login = () => {
       password: Yup.string().required("Password is required"),
     }),
 
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values, { resetForm }) => {
+      const resultAction = await dispatch(login(values));
 
-      dispatch(login(values));
+      if (login.fulfilled.match(resultAction)) {
+        navigate("/");
+      }
+
+      resetForm();
     },
   });
 
@@ -46,6 +61,13 @@ const Login = () => {
             Sign in to our platform
           </h3>
           <form className="space-y-5" onSubmit={formik.handleSubmit}>
+            {message && (
+              <Alert color="failure" icon={HiInformationCircle}>
+                <span>
+                  <span className="font-medium">{message}</span>
+                </span>
+              </Alert>
+            )}
             <div>
               <div className="mb-2 block">
                 <Label
@@ -112,6 +134,7 @@ const Login = () => {
                 Lost Password?
               </a>
             </div>
+
             <div className="w-full">
               <Button color="dark" type="submit">
                 Log in to your account
