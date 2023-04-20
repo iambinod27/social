@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { register } from "../store/actions/auth/authActions";
-import { HiInformationCircle } from "react-icons/hi";
+import { HiInformationCircle, HiOutlineMail } from "react-icons/hi";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -39,8 +39,6 @@ const SignUp = () => {
       const resultAction = await dispatch(register(values));
 
       if (register.fulfilled.match(resultAction)) {
-        dispatch(register(values));
-
         navigate("/");
       }
 

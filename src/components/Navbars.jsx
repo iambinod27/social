@@ -27,6 +27,7 @@ const Navbars = () => {
             <Avatar
               alt="User settings"
               img="https://hips.hearstapps.com/hmg-prod/images/gettyimages-594881580.jpg?resize=1200:*"
+              rounded="true"
             />
           }
         >

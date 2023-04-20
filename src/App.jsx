@@ -27,6 +27,10 @@ const renderRoutes = (isAuthenticated) => {
 const App = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
 
-  return <>{renderRoutes(isAuthenticated)}</>;
+  return (
+    <>
+      <div>{renderRoutes(isAuthenticated)}</div>
+    </>
+  );
 };
 export default App;
