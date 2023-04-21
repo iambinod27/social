@@ -6,7 +6,7 @@ import SignUp from "./pages/SignUp";
 import { useSelector } from "react-redux";
 
 const renderRoutes = (isAuthenticated) => {
-  if (isAuthenticated) {
+  if (!isAuthenticated) {
     return (
       <Routes>
         <Route path="/" element={<Layout />}>

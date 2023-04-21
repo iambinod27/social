@@ -1,5 +1,6 @@
 import Chatlist from "../components/Chatlist";
 import Content from "../components/Content";
+import PostEditor from "../components/PostEditor";
 import SideMenu from "../components/SideMenu";
 
 const Home = () => {
@@ -13,6 +14,8 @@ const Home = () => {
         </div>
         <div className="col-span-6">
           <div className="p-5 max-h-screen overflow-y-scroll">
+            <PostEditor />
+
             <Content />
           </div>
         </div>
