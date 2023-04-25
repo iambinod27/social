@@ -31,10 +31,8 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.access_token = payload.access_token;
       state.isAuthenticated = true;
-      localStorage.setItem("refreshToken", payload.refresh_token);
     },
     [login.rejected]: (state, { payload }) => {
-      console.log(payload);
       state.message = payload;
       state.isLoading = true;
     },

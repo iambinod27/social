@@ -31,6 +31,7 @@ export const login = createAsyncThunk(
       });
 
       const data = await res.data;
+      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
