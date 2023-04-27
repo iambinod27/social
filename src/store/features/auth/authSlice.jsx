@@ -11,7 +11,12 @@ const initialState = {
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    onLogout: (state) => {
+      state.access_token = null;
+      state.isAuthenticated = false;
+    },
+  },
   extraReducers: {
     [register.pending]: (state) => {
       state.isLoading = true;
@@ -31,6 +36,7 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.access_token = payload.access_token;
       state.isAuthenticated = true;
+      localStorage.setItem("access_token", payload.access_token);
     },
     [login.rejected]: (state, { payload }) => {
       state.message = payload;
@@ -39,6 +45,6 @@ const authSlice = createSlice({
   },
 });
 
-export const {} = authSlice.actions;
+export const { onLogout } = authSlice.actions;
 
 export default authSlice.reducer;

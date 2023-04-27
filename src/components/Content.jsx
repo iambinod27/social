@@ -17,7 +17,7 @@ const Content = () => {
     <div className="grid place-items-center">
       {isLoading ? (
         <div className="min-h-screen flex items-center justify-center">
-          <Loading />
+          No post Availible
         </div>
       ) : (
         postItems.map((post) => <ContentPost post={post} />)

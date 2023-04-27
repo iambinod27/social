@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const renderRoutes = (isAuthenticated) => {
   if (isAuthenticated) {

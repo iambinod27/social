@@ -1,7 +1,11 @@
 import { Avatar, Dropdown, Navbar, TextInput } from "flowbite-react";
 import { RiSearchLine } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { onLogout } from "../store/features/auth/authSlice";
 
 const Navbars = () => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <Navbar fluid={true} className="sticky top-0 h-16 !bg-primary text-white">
@@ -39,7 +43,9 @@ const Navbars = () => {
           </Dropdown.Header>
           <Dropdown.Item>Settings</Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item>Sign out</Dropdown.Item>
+          <Dropdown.Item onClick={() => dispatch(onLogout())}>
+            Sign out
+          </Dropdown.Item>
         </Dropdown>
       </Navbar>
     </>

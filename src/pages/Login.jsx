@@ -53,10 +53,10 @@ const Login = () => {
       </Navbar>
       <div className="w-full mx-auto min-h-screen flex items-center justify-center">
         <div className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8">
-          <h2 className="capitalize text-3xl">
+          <div className="capitalize text-3xl">
             <h3>Let's Connect everyone</h3>
             <p>Get lost in the world of Internet.</p>
-          </h2>
+          </div>
           <h3 className="text-xl font-medium text-gray-900 dark:text-white">
             Sign in to our platform
           </h3>
