@@ -36,7 +36,6 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.access_token = payload.access_token;
       state.isAuthenticated = true;
-      localStorage.setItem("access_token", payload.access_token);
     },
     [login.rejected]: (state, { payload }) => {
       state.message = payload;
