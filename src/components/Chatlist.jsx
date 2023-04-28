@@ -18,7 +18,7 @@ const Chatlist = () => {
   return (
     <>
       <div className="flex items-center justify-between">
-        <h4>Active Friends (2)</h4>
+        <h4>Friends ({friends.length})</h4>
         <div className="flex items-center gap-2">
           <div>
             <RiSearchLine />
@@ -31,7 +31,13 @@ const Chatlist = () => {
       </div>
       {/* Friends List */}
       {friends.map((friend) => {
-        return <ActiveFriend friend={friend} key={friend.id} />;
+        {
+          return friend == [] ? (
+            <p>No Friends</p>
+          ) : (
+            <ActiveFriend friend={friend} key={friend.id} />
+          );
+        }
       })}
     </>
   );
