@@ -1,8 +1,20 @@
 import { RiSearchLine } from "react-icons/ri";
 import { SlOptions } from "react-icons/sl";
 import ActiveFriend from "./ActiveFriend";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getFriends } from "../store/actions/friends/friendActions";
 
 const Chatlist = () => {
+  const dispatch = useDispatch();
+
+  const { access_token } = useSelector((state) => state.auth);
+  const { friends } = useSelector((state) => state.friend);
+
+  useEffect(() => {
+    dispatch(getFriends(access_token));
+  }, [dispatch]);
+
   return (
     <>
       <div className="flex items-center justify-between">
@@ -18,7 +30,9 @@ const Chatlist = () => {
         </div>
       </div>
       {/* Friends List */}
-      <ActiveFriend />
+      {friends.map((friend) => {
+        return <ActiveFriend friend={friend} key={friend.id} />;
+      })}
     </>
   );
 };

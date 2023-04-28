@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import ContentPost from "./ContentPost";
 import { Loading } from "../components/Loading";
 import { useDispatch, useSelector } from "react-redux";
-import { getPost } from "../store/actions/auth/postActions";
+import { getPost } from "../store/actions/posts/postActions";
 
 const Content = () => {
   const { postItems, isLoading } = useSelector((state) => state.post);

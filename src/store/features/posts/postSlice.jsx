@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getPost } from "../../actions/auth/postActions";
+import { getPost } from "../../actions/posts/postActions";
 
 const initialState = {
   postItems: [],
