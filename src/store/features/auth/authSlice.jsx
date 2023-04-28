@@ -6,6 +6,7 @@ const initialState = {
   isLoading: true,
   isAuthenticated: false,
   message: null,
+  username: null,
 };
 
 const authSlice = createSlice({
@@ -36,6 +37,7 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.access_token = payload.access_token;
       state.isAuthenticated = true;
+      state.username = payload.username;
     },
     [login.rejected]: (state, { payload }) => {
       state.message = payload;

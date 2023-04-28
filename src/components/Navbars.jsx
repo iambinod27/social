@@ -1,10 +1,12 @@
 import { Avatar, Dropdown, Navbar, TextInput } from "flowbite-react";
 import { RiSearchLine } from "react-icons/ri";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { onLogout } from "../store/features/auth/authSlice";
 
 const Navbars = () => {
   const dispatch = useDispatch();
+
+  const { username } = useSelector((state) => state.auth);
 
   return (
     <>
@@ -27,21 +29,13 @@ const Navbars = () => {
         <Dropdown
           arrowIcon={false}
           inline={true}
-          label={
-            <Avatar
-              alt="User settings"
-              img="https://hips.hearstapps.com/hmg-prod/images/gettyimages-594881580.jpg?resize=1200:*"
-              rounded="true"
-            />
-          }
+          label={<Avatar alt="User settings" rounded="true" />}
         >
           <Dropdown.Header>
-            <span className="block text-sm">Pedro Pascal</span>
-            <span className="block truncate text-sm font-medium">
-              Pedro@pascal.com
+            <span className="block text-sm capitalize font-semibold">
+              {username}
             </span>
           </Dropdown.Header>
-          <Dropdown.Item>Settings</Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item onClick={() => dispatch(onLogout())}>
             Sign out
