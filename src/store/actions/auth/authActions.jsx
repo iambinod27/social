@@ -38,3 +38,20 @@ export const login = createAsyncThunk(
     }
   }
 );
+
+export const tokenRefresh = createAsyncThunk(
+  "auth/refreshToken",
+  async (payload, thunkAPI) => {
+    try {
+      const res = await socialAxios.post("/auth/refresh/", {
+        refresh: payload,
+      });
+
+      const data = await res.data;
+      console.log(data);
+      return data;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error);
+    }
+  }
+);
