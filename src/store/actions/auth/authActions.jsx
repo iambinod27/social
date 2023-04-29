@@ -43,6 +43,9 @@ export const tokenRefresh = createAsyncThunk(
   "auth/refreshToken",
   async (payload, thunkAPI) => {
     try {
+      if (!payload) {
+        throw new Error("Refresh token not found");
+      }
       const res = await socialAxios.post("/auth/refresh/", {
         refresh: payload,
       });

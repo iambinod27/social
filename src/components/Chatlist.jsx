@@ -12,13 +12,10 @@ const Chatlist = () => {
   const { access_token } = useSelector((state) => state.auth);
   const { friends } = useSelector((state) => state.friend);
 
-  const refresh_token = localStorage.getItem("refreshToken");
-
   console.log(access_token);
 
   useEffect(() => {
     dispatch(getFriends(access_token));
-    dispatch(tokenRefresh(refresh_token));
   }, [dispatch]);
 
   return (

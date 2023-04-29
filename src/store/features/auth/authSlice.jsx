@@ -17,6 +17,12 @@ const authSlice = createSlice({
       state.access_token = null;
       state.isAuthenticated = false;
     },
+    setAccessToken: (state, action) => {
+      state.access_token = action.payload;
+    },
+    setRefreshToken: (state, { payload }) => {
+      localStorage.setItem("refreshToken", payload.refresh_token);
+    },
   },
   extraReducers: {
     [register.pending]: (state) => {

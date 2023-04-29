@@ -1,5 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import socialAxios from "../../../axios/axios";
+import { tokenRefresh } from "../auth/authActions";
+
+const refresh_token = localStorage.getItem("refreshToken");
 
 export const getFriends = createAsyncThunk(
   "friends/all",
@@ -12,9 +15,15 @@ export const getFriends = createAsyncThunk(
         },
       });
       const data = await res.data;
+      console.log(data);
       return data;
     } catch (error) {
-      thunkAPI.rejectWithValue("Something Wrong Info");
+      if (error.response.status === 401) {
+        console.log("hello");
+        tokenRefresh(refresh_token);
+      } else {
+        thunkAPI.rejectWithValue("Something Wrong Info");
+      }
     }
   }
 );
