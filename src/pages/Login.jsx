@@ -36,7 +36,7 @@ const Login = () => {
     onSubmit: async (values, { resetForm }) => {
       const resultAction = await dispatch(login(values));
 
-      if (logrin.fulfilled.match(resultAction)) {
+      if (login.fulfilled.match(resultAction)) {
         navigate("/");
       }
 
